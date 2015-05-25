@@ -2,12 +2,12 @@
 
 ## Running the project
 
-Start the web server:
+In a terminal, start the web server:
 
     lein repl
     (start-server)
 
-Start figwheel:
+In another terminal, start figwheel:
 
     lein figwheel
 
