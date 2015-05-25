@@ -1,17 +1,18 @@
 # Animals CRUD
 
-## Running the project (with figwheel and weasel)
+## Running the project
 
-In one terminal:
+Start the web server:
+
+    lein repl
+    (start-server)
+
+Start figwheel:
 
     lein figwheel
 
-In another:
-
-    lein ring server
-
 Finally browse to
-[http://localhost:8090/index.html](http://localhost:8090/index.html)
+[http://localhost:8080/index.html](http://localhost:8090/index.html)
 and have fun.
 
 ## License

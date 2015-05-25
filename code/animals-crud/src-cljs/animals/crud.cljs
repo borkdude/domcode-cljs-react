@@ -2,13 +2,24 @@
   (:require-macros [cljs.core.async.macros :refer (go)])
   (:require
    [reagent.core :as reagent :refer [atom]]
-   [cljsjs.react :as react]
    [cljs-http.client :as http]
-   [cljs.core.async :refer (<!)]))
+   [cljs.core.async :refer (<!)]
+   [schema.core :as s]))
 
 (enable-console-print!)
 
-(defonce animals-state (atom #{}))
+(def Animals
+  "A schema for animals state"
+  #{{:id s/Int
+     :type s/Keyword
+     :name s/Str
+     :species s/Str}})
+
+(defonce animals-state
+  (atom #{}
+        :validator
+        (fn [n]
+          (s/validate Animals n))))
 
 ;; initial call to get animals from server
 (go (let [response
@@ -31,8 +42,7 @@
   (go (let [response
             (<! (http/delete (str "/animals/"
                                   (:id a))))]
-        (if (= (:status response)
-               200)
+        (if (= 200 (:status response))
           (swap! animals-state remove-by-id (:id a))))))
 
 (defn update-animal! [a]
