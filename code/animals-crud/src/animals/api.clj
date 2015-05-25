@@ -62,4 +62,5 @@
 
 (defn init
   []
+  (println "initializing data")
   (animals/init))

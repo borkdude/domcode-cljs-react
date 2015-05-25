@@ -24,7 +24,7 @@
 ;; initial call to get animals from server
 (go (let [response
           (<! (http/get "/animals"))
-          data (:body response)]
+          data (:body response)]      
       (reset! animals-state (set data))))
 
 ;;; crud operations

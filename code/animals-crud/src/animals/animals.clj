@@ -26,6 +26,7 @@
 
 (defn init
   []
+  (println "initializing animals")
   (do
     (create! {:name    "Painted-snipe"
               :species "Rostratulidae"})
