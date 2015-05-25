@@ -1,0 +1,17 @@
+pom.xml
+*jar
+lib
+classes
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+*iml
+.lein-env
+out
+target
+.nrepl-port
+.repl/
+repl/
+code/animals-crud/resources/public/crud.js
+private
+/code/animals-crud/figwheel_server.log
