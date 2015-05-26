@@ -44,7 +44,7 @@
                                   (:id a))))]
         (if (= 200 (:status response))
           (swap! animals-state remove-by-id (:id a))))))
-
+ 
 (defn update-animal! [a]
   (go (let [response
             (<! (http/put (str "/animals/" (:id a))
@@ -85,13 +85,13 @@
        [:td [editable-input row-state :species]]
        [:td [:button.btn.btn-primary.pull-right
              {:disabled (not (input-valid? row-state))
-              :onClick (fn []
+              :on-click (fn []
                          (when (:editing? @row-state)
                            (update-animal! (current-animal)))
                          (swap! row-state update-in [:editing?] not))}
              (if (:editing? @row-state) "Save" "Edit")]]
        [:td [:button.btn.pull-right.btn-danger
-             {:onClick #(remove-animal! (current-animal))}
+             {:on-click #(remove-animal! (current-animal))}
              "\u00D7"]]])))
 
 (defn animal-form []
@@ -105,7 +105,7 @@
        [:td [editable-input form-input-state :species]]
        [:td [:button.btn.btn-primary.pull-right
              {:disabled (not (input-valid? form-input-state))
-              :onClick  (fn []
+              :on-click  (fn []
                           (add-animal! @form-input-state)
                           (reset! form-input-state initial-form-values))}
              "Add"]]])))
