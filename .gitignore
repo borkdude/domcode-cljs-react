@@ -17,3 +17,4 @@ private
 /code/animals-crud/figwheel_server.log
 /code/animals-crud/.nrepl-history
 /code/animals-crud/boot.properties
+/code/animals-crud/.boot/
