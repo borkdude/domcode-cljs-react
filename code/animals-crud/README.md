@@ -12,7 +12,7 @@ In another terminal, start figwheel:
     lein figwheel
 
 Finally browse to
-[http://localhost:8080/index.html](http://localhost:8090/index.html)
+[http://localhost:8080/index.html](http://localhost:8080/index.html)
 and have fun.
 
 ## License
